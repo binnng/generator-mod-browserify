@@ -1,0 +1,35 @@
+{
+  "name": "baidu-wallet/mod.js",
+  "main": "mod.js",
+  "homepage": "https://github.com/baidu-wallet/mod.js",
+  "authors": [
+    "binnng <imbinnng@gmail.com>"
+  ],
+  "description": "modules",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "modules"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "e5a92e6723",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e5a92e6723e257cc8fcc2f98839ad3fc3cc4f377"
+  },
+  "_source": "https://github.com/baidu-wallet/mod.js.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/baidu-wallet/mod.js.git",
+  "_direct": true
+}

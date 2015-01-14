@@ -19,20 +19,21 @@ module.exports = function(grunt) {
     },
 
     // Mocha testing framework configuration options
-    mocha: {
-      all: {
-        options: {
-          run: true,
-          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-        }
-      }
-    },
+    // you need grunt-mocha
+    // mocha: {
+    //   all: {
+    //     options: {
+    //       run: true,
+    //       urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
+    //     }
+    //   }
+    // },
 
     // Compiles Sass to CSS and generates necessary files if requested
     sass: {
       options: {
         includePaths: [
-          'bower_components'
+          '<%= config.app %>/components'
         ]
       },
       dist: {
@@ -74,7 +75,7 @@ module.exports = function(grunt) {
     bowerInstall: {
       app: {
         src: ['<%= config.app %>/index.html'],
-        exclude: ['bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js']
+        exclude: ['<%= config.app %>/components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js']
       },
       sass: {
         src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}']
@@ -165,7 +166,7 @@ module.exports = function(grunt) {
     // cssmin: {
     //   dist: {
     //     files: {
-    //       '<%= config.dist %>/styles/main.css': [
+    //       '<%= config.dist %>/styles/app.css': [
     //         '.tmp/styles/{,*/}*.css',
     //         '<%= config.app %>/styles/{,*/}*.css'
     //       ]

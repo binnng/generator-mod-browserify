@@ -2,12 +2,12 @@ module.exports = function (grunt) {
   return {
       // Watches files for changes and runs tasks based on the changed files
       watch: {
-          // bower: {
-          //     files: ['bower.json'],
-          //     tasks: ['bowerInstall']
-          // },
+          bower: {
+              files: ['bower.json'],
+              tasks: ['bowerInstall']
+          },
           js: {
-              files: ['<%= config.app %>/scripts/.tmp/all.js'],
+              files: ['<%= config.tmp %>/scripts/app.js'],
               tasks: ['jshint'],
               options: {
                   livereload: true
@@ -48,19 +48,17 @@ module.exports = function (grunt) {
 
           importjs: {
             files: [
-              '<%= config.app %>/scripts/{,*/}*.js',
-              '!<%= config.app %>/scripts/modules/*.js',
-              '!<%= config.app %>/scripts/.tmp/*.js'
+              '<%= config.app %>/scripts/{,*/}*.js'
             ],
             tasks: ['concat:import']
           },
 
-          alljs: {
+          appjs: {
             files: [
-              '<%= config.app %>/scripts/.tmp/vender.js',
-              '<%= config.app %>/scripts/.tmp/bundle.js'
+              '<%= config.tmp %>/scripts/vendor.js',
+              '<%= config.tmp %>/scripts/bundle.js'
             ],
-            tasks: ['concat:all']
+            tasks: ['concat:app']
           }
       }
     }

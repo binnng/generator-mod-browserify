@@ -15,6 +15,7 @@ exports = (grunt) ->
     dist: "dist"
     taskName: taskName
     isBuild: isBuild
+    tmp: ".tmp"
 
   tasks = []
 

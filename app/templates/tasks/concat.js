@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 
 
     // build 任务去掉debug.js
-    if(isBuild) {
+    if (isBuild) {
       fileList = fileList.filter(function(name, index) {
         return !~name.indexOf("debug.js")
       });
@@ -39,14 +39,19 @@ module.exports = function(grunt) {
   var exports = {
 
     concat: {
-      options:{
+      options: {
         separator: ";"
       },
       "import": {
+        options: {
+          process: function(src, filepath) {
+            return '\n' + '// Source: ' + filepath + '\n';
+          }
+        },
         src: getConcatJsFiles(),
-        dest: "<%= config.app %>/.tmp/vender.js"
+        dest: "<%= config.tmp %>/scripts/vendor.js"
       },
-      all: {
+      app: {
         options: {
           banner: "(function(undefined) {\n'use strict';\n",
           footer: "})();",
@@ -54,7 +59,7 @@ module.exports = function(grunt) {
             var ret = '\n' + '// Source: ' + filepath + '\n' +
               src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
 
-            if (isBuild && ~filepath.indexOf("vender.js")) {
+            if (isBuild && ~filepath.indexOf("vendor.js")) {
               ret = ret.replace("IsDebug = true", "IsDebug = false");
             }
 
@@ -62,10 +67,10 @@ module.exports = function(grunt) {
           }
         },
         src: [
-          "<%= config.app %>/.tmp/vender.js",
-          "<%= config.app %>/.tmp/bundle.js",
+          "<%= config.tmp %>/scripts/vendor.js",
+          "<%= config.tmp %>/scripts/bundle.js"
         ],
-        dest: "<%= config.app %>/.tmp/all.js"
+        dest: "<%= config.tmp %>/scripts/app.js"
       }
     }
 

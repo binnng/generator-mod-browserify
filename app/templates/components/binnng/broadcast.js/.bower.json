@@ -1,0 +1,35 @@
+{
+  "name": "binnng/broadcast.js",
+  "authors": [
+    "binnng <imbinnng@gmail.com>"
+  ],
+  "description": "event broadcast",
+  "main": "broadcast.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "event",
+    "broadcast"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/binnng/broadcast.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "e4e8730528",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e4e8730528bfc096e9691bb9852509b765e2c619"
+  },
+  "_source": "https://github.com/binnng/broadcast.js.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/binnng/broadcast.js.git",
+  "_direct": true
+}

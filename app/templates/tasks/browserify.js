@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     browserify: {
       dev: {
         src: ['<%= config.app %>/scripts/app.js'],
-        dest: '<%= config.app %>/.tmp/bundle.js',
+        dest: '<%= config.tmp %>/scripts/bundle.js',
         options: {
           debug: true
         }

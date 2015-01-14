@@ -131,7 +131,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   mainStylesheet: function () {
-    var css = 'styles/main.' + (this.includeSass ? 's' : '') + 'css';
+    var css = 'styles/app.' + (this.includeSass ? 's' : '') + 'css';
     this.template(css, 'app/' + css);
   },
 
@@ -184,7 +184,7 @@ module.exports = yeoman.generators.Base.extend({
 
   },
 
-  javascript: function() {
+  scripts: function() {
 
     this.mkdir('app/scripts');
     this.mkdir('app/scripts/define');
@@ -205,6 +205,10 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('scripts/global.js', 'app/scripts/modules/global.js');
       this.copy('scripts/app.js', 'app/scripts/app.js');
     }
+  },
+
+  components: function() {
+    this.directory('components', 'app/components', true);
   },
 
   tasks: function() {

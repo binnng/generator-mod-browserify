@@ -25,16 +25,16 @@ module.exports = function(grunt) {
         }
       }
 
-      ,beauty: {
-        options: {
-          beautify: true,
-          mangle: false,
-          hoist_vars: false
-        },
-        files: {
-          '<%= config.app %>/scripts/.tmp/all.js': ['<%= config.app %>/scripts/.tmp/all.js']
-        }
-      }
+      // ,beauty: {
+      //   options: {
+      //     beautify: true,
+      //     mangle: false,
+      //     hoist_vars: false
+      //   },
+      //   files: {
+      //     '<%= config.tmp %>/scripts/app.js': ['<%= config.tmp %>/scripts/app.js']
+      //   }
+      // }
 
     }
 

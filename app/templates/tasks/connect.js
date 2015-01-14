@@ -20,7 +20,7 @@ module.exports = function(grunt) {
           middleware: function(connect) {
             return [
               connect.static('.tmp'),
-              connect().use('/bower_components', connect.static('./bower_components')),
+              connect().use('/app/components', connect.static('./app/components')),
               connect.static(config.app)
             ];
           }
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
             return [
               connect.static('.tmp'),
               connect.static('test'),
-              connect().use('/bower_components', connect.static('./bower_components')),
+              connect().use('/app/components', connect.static('./app/components')),
               connect.static(config.app)
             ];
           }
