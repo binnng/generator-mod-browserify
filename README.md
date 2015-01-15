@@ -104,6 +104,8 @@ var domify = require("domify");
 
 `modules`里直接使用domify这个方法就行。
 
+具体可以看看我这篇issue：[为什么使用了browserify，还要使用mod.js](https://github.com/binnng/generator-mod-browserify/issues/1)
+
 ##### tasks
 
 这是拆分了的grunt任务目录
