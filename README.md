@@ -118,7 +118,7 @@ var domify = require("domify");
 
 > 拆分grunt任务，免得`gruntfile.js`越来越长，越来越难以维护。
 
-### 功能
+### 任务
 
 除了基本的[generator-webapp](https://github.com/yeoman/generator-webapp)提供的grunt服务，还做了些扩展。
 
@@ -132,6 +132,17 @@ build后如果要做些特殊处理，可以写在`tasks/publish.js`里。
 
 ##### grunt serve:doc
 访问文档。
+
+### JS导入
+
+项目主JS文件是`app/scripts/app.js`
+
+你可以在这个js里如以下方式随意导入外部js：
+
+```
+// @import "../components/binnng/broadcast.js/broadcast.js"
+// @import "../demodir/test.js"
+```
 
 ### 调试
 
