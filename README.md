@@ -132,3 +132,25 @@ build后如果要做些特殊处理，可以写在`tasks/publish.js`里。
 
 ##### grunt serve:doc
 访问文档。
+
+### 调试
+
+项目使用了debug.js，具体可以看看[https://github.com/binnng/debug.js](https://github.com/binnng/debug.js)
+
+目的是移动设备上打印调试信息。
+
+当执行`grunt build`或`grunt publish`任务的时候，会自行将这个js去掉。
+
+另外，`app/imports/define.js`中定义了
+
+```
+var IsDebug = true;
+```
+
+当执行build或publish任务时，会将IsDebug置为false。
+
+如果你不想使用`debug.js`，你可以在`app/scripts/app.js`中删除这段：
+
+```
+// @import "../components/binnng/debug.js/debug.js"
+```
