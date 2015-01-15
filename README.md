@@ -6,6 +6,8 @@ generator-mod-browserify
 
 > 基于 **mod.js** 和 **browserify** 的Yeoman生成器。
 
+[http://binnng.github.io/generator-mod-browserify](http://binnng.github.io/generator-mod-browserify)
+
 
 ### 准备
 
