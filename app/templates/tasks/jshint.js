@@ -10,10 +10,8 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
       },
-      all: [
-        //'Gruntfile.js',
-        //'<%= config.app %>/scripts/{,*/}*.js',
-        '<%= config.app %>/scripts/all.js',
+      app: [
+        '<%= config.app %>/scripts/app.js',
         '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]

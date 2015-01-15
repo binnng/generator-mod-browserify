@@ -12,13 +12,11 @@
 // ```
 // @import "../components/binnng/debug.js/debug.js"
 // @import "../components/mod.js/mod.js"
-// @import "../components/zepto/zepto.js"
 // @import "../components/binnng/broadcast.js/broadcast.js"
-// @import "../components/performance.js/performance.js"
-// @import "./define/constant.js"
-// @import "./define/extend.js"
-// @import "./define/define.js"
-// @import "./define/util.js"
+// @import "./imports/constant.js"
+// @import "./imports/extend.js"
+// @import "./imports/define.js"
+// @import "./imports/util.js"
 // ```
 
 // Global

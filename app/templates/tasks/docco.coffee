@@ -39,7 +39,7 @@ module.exports = (grunt) ->
 			# ]
 			src: getDoccoFiles()
 			options:
-				output: '<%= config.app %>/docs/'
+				output: '<%= config.doc %>'
 
 	connect:
     docs: 
@@ -48,7 +48,7 @@ module.exports = (grunt) ->
       	# base可以传Object，貌似不管用
       	# grunt-contrib-connect 0.9.0以上版本管用
         base: 
-        	path: '<%= config.app %>/docs'
+        	path: '<%= config.doc %>'
 	        options:
 	        	index: "app.html"
         livereload: false

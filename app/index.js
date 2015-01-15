@@ -3,6 +3,7 @@
 var join = require('path').join;
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var fs = require('fs');
 
 module.exports = yeoman.generators.Base.extend({
   constructor: function () {
@@ -143,7 +144,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // wire Bootstrap plugins
     if (this.includeBootstrap && !this.includeSass) {
-      var bs = 'bower_components/bootstrap/js/';
+      var bs = 'app/components/bootstrap/js/';
 
       this.indexFile = this.appendFiles({
         html: this.indexFile,
@@ -172,7 +173,7 @@ module.exports = yeoman.generators.Base.extend({
       fileType: 'js',
       optimizedPath: 'scripts/app.js',
       sourceFileList: ['scripts/app.js'],
-      searchPath: ['app', '.tmp']
+      searchPath: '.tmp'
     });
   },
 
@@ -187,24 +188,15 @@ module.exports = yeoman.generators.Base.extend({
   scripts: function() {
 
     this.mkdir('app/scripts');
-    this.mkdir('app/scripts/define');
-    this.mkdir('app/scripts/modules');
 
     if (this.coffee) {
-      this.copy('scripts/constant.coffee', 'app/scripts/define/constant.coffee');
-      this.copy('scripts/extend.coffee', 'app/scripts/define/extend.coffee');
-      this.copy('scripts/define.coffee', 'app/scripts/define/define.coffee');
-      this.copy('scripts/util.coffee', 'app/scripts/define/util.coffee');
-      this.copy('scripts/global.coffee', 'app/scripts/modules/global.coffee');
-      this.copy('scripts/app.coffee', 'app/scripts/app.coffee');
+
     } else {
-      this.copy('scripts/constant.js', 'app/scripts/define/constant.js');
-      this.copy('scripts/extend.js', 'app/scripts/define/extend.js');
-      this.copy('scripts/define.js', 'app/scripts/define/define.js');
-      this.copy('scripts/util.js', 'app/scripts/define/util.js');
-      this.copy('scripts/global.js', 'app/scripts/modules/global.js');
-      this.copy('scripts/app.js', 'app/scripts/app.js');
+
     }
+
+    this.directory('scripts', 'app/scripts', true);
+
   },
 
   components: function() {
@@ -212,7 +204,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   tasks: function() {
-    this.directory('tasks', 'tasks', true);
+    // 直接用directory会去掉部分`<%= config.tmp %>`这类grunt模板，很奇怪
+    this.bulkDirectory('tasks', 'tasks');
   },
 
   install: function () {

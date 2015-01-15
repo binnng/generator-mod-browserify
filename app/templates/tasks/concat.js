@@ -17,7 +17,13 @@ module.exports = function(grunt) {
   };
 
   function getConcatJsFiles() {
-    var appJs = grunt.file.read(config.app + "/scripts/app.js");
+    var appJs = "";
+
+    if (grunt.file.exists(config.app + "/scripts/app.coffee")) {
+      appJs = grunt.file.read(config.app + "/scripts/app.coffee");
+    } else {
+      appJs = grunt.file.read(config.app + "/scripts/app.js");
+    }
 
     getImportsJsFile(appJs);
 
@@ -36,7 +42,7 @@ module.exports = function(grunt) {
     });
   };
 
-  var exports = {
+  return {
 
     concat: {
       options: {
@@ -45,11 +51,11 @@ module.exports = function(grunt) {
       "import": {
         options: {
           process: function(src, filepath) {
-            return '\n' + '// Source: ' + filepath + '\n';
+            return '\n' + '// Source: ' + filepath + '\n' + src;
           }
         },
-        src: getConcatJsFiles(),
-        dest: "<%= config.tmp %>/scripts/vendor.js"
+        src: getConcatJsFiles() || [],
+        dest: '<%= config.tmp %>/scripts/vendor.js'
       },
       app: {
         options: {
@@ -67,15 +73,13 @@ module.exports = function(grunt) {
           }
         },
         src: [
-          "<%= config.tmp %>/scripts/vendor.js",
-          "<%= config.tmp %>/scripts/bundle.js"
+          '<%= config.tmp %>/scripts/vendor.js',
+          '<%= config.tmp %>/scripts/bundle.js'
         ],
-        dest: "<%= config.tmp %>/scripts/app.js"
+        dest: '<%= config.tmp %>/scripts/app.js'
       }
     }
 
   };
-
-  return exports;
 
 };

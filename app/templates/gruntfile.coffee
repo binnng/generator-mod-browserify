@@ -16,6 +16,8 @@ exports = (grunt) ->
     taskName: taskName
     isBuild: isBuild
     tmp: ".tmp"
+    doc: "docs"
+    components: "app/components"
 
   tasks = []
 

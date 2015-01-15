@@ -17,7 +17,9 @@ exports = function(grunt) {
     dist: "dist",
     taskName: taskName,
     isBuild: isBuild,
-    tmp: ".tmp"
+    tmp: ".tmp",
+    doc: "docs",
+    components: "app/components"
   };
   tasks = [];
   grunt.file.recurse(config.tasks, function(abspath, rootdir, subdir, filename) {

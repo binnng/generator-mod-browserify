@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
   var config = grunt.config.get("config");
 
-  var exports = {
+  return {
 
     browserify: {
       dev: {
@@ -15,7 +15,5 @@ module.exports = function(grunt) {
     }
 
   };
-
-  return exports;
 
 };

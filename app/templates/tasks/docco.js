@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       script: {
         src: getDoccoFiles(),
         options: {
-          output: '<%= config.app %>/docs/'
+          output: '<%= config.doc %>'
         }
       }
     },
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
       docs: {
         options: {
           base: {
-            path: '<%= config.app %>/docs',
+            path: '<%= config.doc %>',
             options: {
               index: "app.html"
             }

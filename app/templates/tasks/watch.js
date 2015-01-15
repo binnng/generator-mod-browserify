@@ -18,7 +18,7 @@ module.exports = function (grunt) {
               tasks: ['test:watch']
           },
           gruntfile: {
-              files: ['Gruntfile.js']
+              files: ['gruntfile.js']
           },
           sass: {
               files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
@@ -41,14 +41,15 @@ module.exports = function (grunt) {
           browserify: {
               files: [
               '<%= config.app %>/scripts/app.js',
-              '!<%= config.app %>/scripts/modules/{,*/}*.js'
+              '<%= config.app %>/scripts/modules/{,*/}*.js'
             ],
               tasks: ['browserify']
           },
 
           importjs: {
             files: [
-              '<%= config.app %>/scripts/{,*/}*.js'
+              '<%= config.app %>/scripts/imports/{,*/}*.js',
+              '<%= config.components %>/{,*/}*.js'
             ],
             tasks: ['concat:import']
           },
