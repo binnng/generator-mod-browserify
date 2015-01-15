@@ -1,76 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Generator-mod-browserify : 基于mod.js和browserify的yeoman生成器">
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <title>Generator-mod-browserify</title>
+    <title>Generator-mod-browserify by binnng</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div id="header_wrap" class="outer">
-      <header class="inner">
-        <a id="forkme_banner" href="https://github.com/binnng/generator-mod-browserify">View on GitHub</a>
-        <h1 id="project_title">Generator-mod-browserify</h1>
-        <h2 id="project_tagline">基于mod.js和browserify的yeoman生成器</h2>
-        <section id="downloads">
-          <a class="zip_download_link" href="https://github.com/binnng/generator-mod-browserify/zipball/master">Download this project as a .zip file</a>
-          <a class="tar_download_link" href="https://github.com/binnng/generator-mod-browserify/tarball/master">Download this project as a tar.gz file</a>
-        </section>
+    <div class="wrapper">
+      <header>
+        <h1>Generator-mod-browserify</h1>
+        <p>基于mod.js和browserify的yeoman生成器</p>
+
+        <p class="view"><a href="https://github.com/binnng/generator-mod-browserify">View the Project on GitHub <small>binnng/generator-mod-browserify</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/binnng/generator-mod-browserify/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/binnng/generator-mod-browserify/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/binnng/generator-mod-browserify">View On <strong>GitHub</strong></a></li>
+        </ul>
       </header>
-    </div>
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      <section>
         <h1>
-        <a id="generator-mod-browserify" class="anchor" href="#generator-mod-browserify" aria-hidden="true"><span class="octicon octicon-link"></span></a>generator-mod-browserify</h1>
-        <p><img src="https://cloud.githubusercontent.com/assets/2696107/5752010/1b413f02-9ca8-11e4-8fd9-c03f34d72f40.jpg" alt="yo"></p>
-        <blockquote>
-          <p>基于 <strong>mod.js</strong> 和 <strong>browserify</strong> 的Yeoman生成器。</p>
-        </blockquote>
-        <h3>
-        <a id="准备" class="anchor" href="#%E5%87%86%E5%A4%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>准备</h3>
-        <p>你需要事先了解这几样东西</p>
-        <ol>
-          <li><a href="http://yeoman.io/">Yeoman</a></li>
-          <li><a href="http://javascript.ruanyifeng.com/nodejs/commonjs.html">CommonJs</a></li>
-          <li><a href="http://browserify.org/">browserify</a></li>
-          <li><a href="https://github.com/yeoman/generator-webapp">generator-webapp</a></li>
-        </ol>
-        <p>项目基于<a href="https://github.com/yeoman/generator-webapp">generator-webapp</a>做了很多扩展。</p>
-        <p>简单介绍下browserify：</p>
-        <blockquote>
-          <p>将符合CommonJs规范的js代码生成浏览器可以直接执行的js代码。</p>
-        </blockquote>
-        <p>比如：</p>
-        <p>a.js</p>
-<pre><code>
+<a id="generator-mod-browserify" class="anchor" href="#generator-mod-browserify" aria-hidden="true"><span class="octicon octicon-link"></span></a>generator-mod-browserify</h1>
+
+<p><img src="https://cloud.githubusercontent.com/assets/2696107/5752010/1b413f02-9ca8-11e4-8fd9-c03f34d72f40.jpg" alt="yo"></p>
+
+<blockquote>
+<p>基于 <strong>mod.js</strong> 和 <strong>browserify</strong> 的Yeoman生成器。</p>
+</blockquote>
+
+<p><a href="http://binnng.github.io/generator-mod-browserify">http://binnng.github.io/generator-mod-browserify</a></p>
+
+<h3>
+<a id="准备" class="anchor" href="#%E5%87%86%E5%A4%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>准备</h3>
+
+<p>你需要事先了解这几样东西</p>
+
+<ol>
+<li><a href="http://yeoman.io/">Yeoman</a></li>
+<li><a href="http://javascript.ruanyifeng.com/nodejs/commonjs.html">CommonJs</a></li>
+<li><a href="http://browserify.org/">browserify</a></li>
+<li><a href="https://github.com/yeoman/generator-webapp">generator-webapp</a></li>
+</ol>
+
+<p>项目基于<a href="https://github.com/yeoman/generator-webapp">generator-webapp</a>做了很多扩展。</p>
+
+<p>简单介绍下browserify：</p>
+
+<blockquote>
+<p>将符合CommonJs规范的js代码生成浏览器可以直接执行的js代码。</p>
+</blockquote>
+
+<p>比如：</p>
+
+<pre><code>// a.js
 module.exports = "this is a.js"
 </code></pre>
-        <p>b.js</p>
-<pre><code>
+
+<pre><code>// b.js
 var a = require(./a.js);
 console.log(a); // "this is a.js"
 </code></pre>
-        <p>通过browserify，会将<code>a.js</code>和<code>b.js</code>合并成浏览器执行的js代码。</p>
-        <h3>
-        <a id="安装" class="anchor" href="#%E5%AE%89%E8%A3%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装</h3>
-        <h5>
-        <a id="安装yo" class="anchor" href="#%E5%AE%89%E8%A3%85yo" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装<code>Yo</code>
-        </h5>
-        <p>你需要安装<code>Yo</code>，具体安装方法可以看看<a href="http://yeoman.io/learning/index.html">这里</a>。</p>
-        <h6>
-        <a id="安装generator" class="anchor" href="#%E5%AE%89%E8%A3%85generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装<code>Generator</code>
-        </h6>
+
+<p>通过browserify，会将<code>a.js</code>和<code>b.js</code>合并成浏览器执行的js代码。</p>
+
+<h3>
+<a id="安装" class="anchor" href="#%E5%AE%89%E8%A3%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装</h3>
+
+<h5>
+<a id="安装yo" class="anchor" href="#%E5%AE%89%E8%A3%85yo" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装<code>Yo</code>
+</h5>
+
+<p>你需要安装<code>Yo</code>，具体安装方法可以看看<a href="http://yeoman.io/learning/index.html">这里</a>。</p>
+
+<h6>
+<a id="安装generator" class="anchor" href="#%E5%AE%89%E8%A3%85generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装<code>Generator</code>
+</h6>
+
 <pre><code>npm install generator-mod-browserify -g
 </code></pre>
-        <h3>
-        <a id="使用" class="anchor" href="#%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用</h3>
-        <h5>
-        <a id="yo一下" class="anchor" href="#yo%E4%B8%80%E4%B8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>Yo一下</h5>
+
+<h3>
+<a id="使用" class="anchor" href="#%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用</h3>
+
+<h5>
+<a id="yo一下" class="anchor" href="#yo%E4%B8%80%E4%B8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>Yo一下</h5>
+
 <pre><code>yo mod-browserify
 </code></pre>
-        <h5>
-        <a id="目录结构" class="anchor" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>目录结构</h5>
+
+<h5>
+<a id="目录结构" class="anchor" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>目录结构</h5>
+
 <pre><code>app
  |-- components bower或者components外部依赖
  |-- images
@@ -82,69 +111,115 @@ console.log(a); // "this is a.js"
    |-- modules 本地模块
 tasks grunt拆分任务目录
 </code></pre>
-        <h3>
-        <a id="说明" class="anchor" href="#%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>说明</h3>
-        <h5>
-        <a id="appcomponents" class="anchor" href="#appcomponents" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>app/components</code>
-        </h5>
-        <p>使用bower或者component安装的目录，不一定都是符合CommonJs规范。</p>
-        <p>建议对于外部依赖提供的方法，都写在<code>app/scripts/imports/define.js</code>里：</p>
+
+<h3>
+<a id="说明" class="anchor" href="#%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>说明</h3>
+
+<h5>
+<a id="appcomponents" class="anchor" href="#appcomponents" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>app/components</code>
+</h5>
+
+<p>使用bower或者component安装的目录，不一定都是符合CommonJs规范。</p>
+
+<p>建议对于外部依赖提供的方法，都写在<code>app/scripts/imports/define.js</code>里：</p>
+
 <pre><code>var $ = window("$");
 var Broadcast = require("binnng/broadcast");
 </code></pre>
-        <h6>
-        <a id="注意" class="anchor" href="#%E6%B3%A8%E6%84%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>注意</strong>
-        </h6>
-        <p>这里的<code>require</code>是mod.js(<code>app/components/mod.js/mod.js</code>)提供的方法，便于引入<code>app/components</code>里符合CommonJs规范的js文件，这也是我引入<code>mod.js</code>的主要原因。</p>
-        <p>当然，如果符合CommonJs规范，你也可以写在<code>app/scripts/modules</code>里：</p>
+
+<h6>
+<a id="注意" class="anchor" href="#%E6%B3%A8%E6%84%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>注意</strong>
+</h6>
+
+<p>这里的<code>require</code>是mod.js(<code>app/components/mod.js/mod.js</code>)提供的方法，便于引入<code>app/components</code>里符合CommonJs规范的js文件，这也是我引入<code>mod.js</code>的主要原因。</p>
+
+<p>当然，如果符合CommonJs规范，你也可以写在<code>app/scripts/modules</code>里：</p>
+
 <pre><code>var domify = require("../components/domify/domify.js");
 </code></pre>
-        <p>如果多个模块都要使用domify这个方法，那就得在<code>modules</code>文件里写很多遍上面的代码，所以还是建议写在<code>app/scripts/imports/define.js</code>里</p>
+
+<p>如果多个模块都要使用domify这个方法，那就得在<code>modules</code>文件里写很多遍上面的代码，所以还是建议写在<code>app/scripts/imports/define.js</code>里</p>
+
 <pre><code>var domify = require("domify");
 </code></pre>
-        <p><code>modules</code>里直接使用domify这个方法就行。</p>
-        <p>具体可以看看我这篇issue：<a href="https://github.com/binnng/generator-mod-browserify/issues/1">为什么使用了browserify，还要使用mod.js</a></p>
-        <h5>
-        <a id="tasks" class="anchor" href="#tasks" aria-hidden="true"><span class="octicon octicon-link"></span></a>tasks</h5>
-        <p>这是拆分了的grunt任务目录</p>
-        <p>具体可以看看我这个项目：<a href="https://github.com/binnng/grunt-task-module">grunt-task-module</a></p>
-        <p>主要作用是：</p>
-        <blockquote>
-          <p>拆分grunt任务，免得<code>gruntfile.js</code>越来越长，越来越难以维护。</p>
-        </blockquote>
-        <h3>
-        <a id="功能" class="anchor" href="#%E5%8A%9F%E8%83%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>功能</h3>
-        <p>除了基本的<a href="https://github.com/yeoman/generator-webapp">generator-webapp</a>提供的grunt服务，还做了些扩展。</p>
-        <h5>
-        <a id="grunt-publish" class="anchor" href="#grunt-publish" aria-hidden="true"><span class="octicon octicon-link"></span></a>grunt publish</h5>
-        <p>发布
-        build后如果要做些特殊处理，可以写在<code>tasks/publish.js</code>里。</p>
-        <h5>
-        <a id="grunt-doc" class="anchor" href="#grunt-doc" aria-hidden="true"><span class="octicon octicon-link"></span></a>grunt doc</h5>
-        <p>生成js(Coffee)文档。
-        可以看看<a href="http://jashkenas.github.io/docco/">docco</a>。</p>
-        <h5>
-        <a id="grunt-servedoc" class="anchor" href="#grunt-servedoc" aria-hidden="true"><span class="octicon octicon-link"></span></a>grunt serve:doc</h5>
-        <p>访问文档。</p>
+
+<p><code>modules</code>里直接使用domify这个方法就行。</p>
+
+<p>具体可以看看我这篇issue：<a href="https://github.com/binnng/generator-mod-browserify/issues/1">为什么使用了browserify，还要使用mod.js</a></p>
+
+<h5>
+<a id="tasks" class="anchor" href="#tasks" aria-hidden="true"><span class="octicon octicon-link"></span></a>tasks</h5>
+
+<p>这是拆分了的grunt任务目录</p>
+
+<p>具体可以看看我这个项目：<a href="https://github.com/binnng/grunt-task-module">grunt-task-module</a></p>
+
+<p>主要作用是：</p>
+
+<blockquote>
+<p>拆分grunt任务，免得<code>gruntfile.js</code>越来越长，越来越难以维护。</p>
+</blockquote>
+
+<h3>
+<a id="任务" class="anchor" href="#%E4%BB%BB%E5%8A%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>任务</h3>
+
+<p>除了基本的<a href="https://github.com/yeoman/generator-webapp">generator-webapp</a>提供的grunt服务，还做了些扩展。</p>
+
+<h5>
+<a id="grunt-publish" class="anchor" href="#grunt-publish" aria-hidden="true"><span class="octicon octicon-link"></span></a>grunt publish</h5>
+
+<p>发布
+build后如果要做些特殊处理，可以写在<code>tasks/publish.js</code>里。</p>
+
+<h5>
+<a id="grunt-doc" class="anchor" href="#grunt-doc" aria-hidden="true"><span class="octicon octicon-link"></span></a>grunt doc</h5>
+
+<p>生成js(Coffee)文档。
+可以看看<a href="http://jashkenas.github.io/docco/">docco</a>。</p>
+
+<h5>
+<a id="grunt-servedoc" class="anchor" href="#grunt-servedoc" aria-hidden="true"><span class="octicon octicon-link"></span></a>grunt serve:doc</h5>
+
+<p>访问文档。</p>
+
+<h3>
+<a id="js导入" class="anchor" href="#js%E5%AF%BC%E5%85%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>JS导入</h3>
+
+<p>项目主JS文件是<code>app/scripts/app.js</code></p>
+
+<p>你可以在这个js里如以下方式随意导入外部js：</p>
+
+<pre><code>// @import "../components/binnng/broadcast.js/broadcast.js"
+// @import "../demodir/test.js"
+</code></pre>
+
+<h3>
+<a id="调试" class="anchor" href="#%E8%B0%83%E8%AF%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>调试</h3>
+
+<p>项目使用了debug.js，具体可以看看<a href="https://github.com/binnng/debug.js">https://github.com/binnng/debug.js</a></p>
+
+<p>目的是移动设备上打印调试信息。</p>
+
+<p>当执行<code>grunt build</code>或<code>grunt publish</code>任务的时候，会自行将这个js去掉。</p>
+
+<p>另外，<code>app/imports/define.js</code>中定义了</p>
+
+<pre><code>var IsDebug = true;
+</code></pre>
+
+<p>当执行build或publish任务时，会将IsDebug置为false。</p>
+
+<p>如果你不想使用<code>debug.js</code>，你可以在<code>app/scripts/app.js</code>中删除这段：</p>
+
+<pre><code>// @import "../components/binnng/debug.js/debug.js"
+</code></pre>
       </section>
-    </div>
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Generator-mod-browserify maintained by <a href="https://github.com/binnng">binnng</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/binnng">binnng</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+    <script src="javascripts/scale.fix.js"></script>
     
   </body>
-  
-  <style type="text/css">
-  a[href*="tongji.baidu.com"]{
-  display: none;
-  }
-  </style>
-  <script type="text/javascript">
-  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0808592e3802a8d59e78e2e601623a22' type='text/javascript'%3E%3C/script%3E"));
-  </script>
 </html>
