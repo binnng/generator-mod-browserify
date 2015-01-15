@@ -96,6 +96,14 @@ var Broadcast = require("binnng/broadcast");
 var domify = require("../components/domify/domify.js");
 ```
 
+如果多个模块都要使用domify这个方法，那就得在`modules`文件里写很多遍上面的代码，所以还是建议写在`app/scripts/imports/define.js`里
+
+```
+var domify = require("domify");
+```
+
+`modules`里直接使用domify这个方法就行。
+
 ##### tasks
 
 这是拆分了的grunt任务目录
@@ -120,8 +128,3 @@ build后如果要做些特殊处理，可以写在`tasks/publish.js`里。
 
 ##### grunt serve:doc
 访问文档。
-
-
-
-
-
